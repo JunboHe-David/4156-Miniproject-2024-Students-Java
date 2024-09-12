@@ -8,6 +8,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 
 
+
+
 /**
  *  This class contains all the unit test for the course project.
  */
@@ -25,6 +27,14 @@ public class CourseUnitTests {
   public void toStringTest() {
     String expectedResult = "\nInstructor: Griffin Newbold; Location: 417 IAB; Time: 11:40-12:55";
     assertEquals(expectedResult, testCourse.toString());
+  }
+
+  @Test
+  public void courseFullTest() {
+    testCourse.setEnrolledStudentCount(251);
+    assertEquals(false, testCourse.isCourseFull(), "Student count 251 > capacity 250");
+    testCourse.setEnrolledStudentCount(249);
+    assertEquals(true, testCourse.isCourseFull(), "Student count 249 > capacity 250");
   }
 
   /** The test course instance used for testing. */
