@@ -1,0 +1,2 @@
+1. Department toString() method, return "result.toString()" -> return result.toString();
+2. Department toString() method, used the department chair variable to avoid used warning;
