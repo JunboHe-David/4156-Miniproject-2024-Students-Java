@@ -1,2 +1,10 @@
-1. Department toString() method, return "result.toString()" -> return result.toString();
-2. Department toString() method, used the department chair variable to avoid used warning;
+1. Department class: toString() method, return "result.toString()" -> return result.toString().
+2. Department class: toString() method, used the department chair variable to avoid unused warning; Static: Avoid unused local variables such as 'departmentChair'.
+3. Course class: swap the return value of the getInstructorName() and getCourseLocation().
+4. Course class: Add necessary condition in enrollStudent() and dropStudent() as indicated in javadoc.
+5. Course class: initial enrollStudentCount change from 500 to 0.
+6. Department class: Check above 0 condition in dropPersonFromMajor() method.
+7. Department class: eliminate unnecessary negative sign in getNumberOfMajors().
+8. Department class: eliminate unnecessary quote around return value of getDepartmentChair().
+9. MyFileDatabase class: add check of casting from hashmap to hashmap<String, department>.
+10. Course class: the courseIsFull logic is reversed to be consistent with its name and usage.

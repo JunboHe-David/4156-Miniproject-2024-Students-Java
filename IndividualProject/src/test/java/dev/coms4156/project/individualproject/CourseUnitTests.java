@@ -11,7 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 
 
 /**
- *  This class contains all the unit test for the course project.
+ *  This class contains all the unit test for the course class.
  */
 @SpringBootTest
 @ContextConfiguration
@@ -32,9 +32,31 @@ public class CourseUnitTests {
   @Test
   public void courseFullTest() {
     testCourse.setEnrolledStudentCount(251);
-    assertEquals(false, testCourse.isCourseFull(), "Student count 251 > capacity 250");
+    assertEquals(true, testCourse.isCourseFull(), "Student count 251 > capacity 250");
     testCourse.setEnrolledStudentCount(249);
-    assertEquals(true, testCourse.isCourseFull(), "Student count 249 > capacity 250");
+    assertEquals(false, testCourse.isCourseFull(), "Student count 249 < capacity 250");
+  }
+
+  @Test
+  public void enrollTest() {
+    testCourse.setEnrolledStudentCount(249);
+    assertEquals(false, testCourse.isCourseFull(), "Student count 249 < capacity 250");
+    testCourse.enrollStudent();
+    assertEquals(true, testCourse.isCourseFull(), "enrollment++ Student count 250 == capacity 250");
+    assertEquals(false, testCourse.enrollStudent(),
+            "student count reach capacity cannot enroll anymore students");
+  }
+
+  @Test
+  public void dropTest() {
+    testCourse.setEnrolledStudentCount(250);
+    assertEquals(true, testCourse.isCourseFull(), "Student count 250 == capacity 250");
+    testCourse.dropStudent();
+    assertEquals(false, testCourse.isCourseFull(),
+            "enrollment--, Student count 249 < capacity 250");
+    testCourse.setEnrolledStudentCount(0);
+    assertEquals(false, testCourse.dropStudent(),
+            "student count is 0 cannot drop anymore students");
   }
 
   /** The test course instance used for testing. */

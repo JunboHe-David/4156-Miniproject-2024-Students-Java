@@ -46,7 +46,11 @@ public class MyFileDatabase {
     try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filePath))) {
       Object obj = in.readObject();
       if (obj instanceof HashMap) {
-        return (HashMap<String, Department>) obj;
+        try {
+          return (HashMap<String, Department>) obj;
+        } catch (ClassCastException e) {
+          throw new IllegalArgumentException("Invalid object type in file.");
+        }
       } else {
         throw new IllegalArgumentException("Invalid object type in file.");
       }
