@@ -1,0 +1,2 @@
+1. learnt how to redirect output stream to byteArrayOutputStream to check print out message:
+https://stackoverflow.com/questions/29296074/changing-output-stream-back-to-system-out
