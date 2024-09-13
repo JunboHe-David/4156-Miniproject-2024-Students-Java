@@ -8,3 +8,8 @@
 8. Department class: eliminate unnecessary quote around return value of getDepartmentChair().
 9. MyFileDatabase class: add check of casting from hashmap to hashmap<String, department>.
 10. Course class: the courseIsFull logic is reversed to be consistent with its name and usage.
+11. RouteController class: the https status of two conditions are swapped for consistency of retrieveDepartment() method.
+12. RouteController class: the https status of success is changed from forbidden to OK of retrieveCourse() method.
+13. RouteController class: eliminate the negative sign before number of majors in getMajorCtFromDept() method.
+14. RouteController class: return response message is correctly display the time slot of the specified course now in findCourseTime() method.
+15. RouteController class: https status change to bad request from ok in handleException() method.
