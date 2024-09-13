@@ -1,14 +1,19 @@
 package dev.coms4156.project.individualproject;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.*;
-import org.springframework.boot.test.context.*;
-import org.springframework.http.*;
-import org.springframework.test.context.*;
+import java.util.HashMap;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.ContextConfiguration;
 
-import java.util.*;
 
 
 /**
@@ -18,6 +23,9 @@ import java.util.*;
 @ContextConfiguration
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class RouteControllerTests {
+  /**
+   *  This class contains all setup to test with original data.
+   */
   @BeforeAll
   public static void setupBeforeTesting() {
     testController = new RouteController();
@@ -31,6 +39,7 @@ public class RouteControllerTests {
   public static void terminateProject() {
     testProject.onTermination();
   }
+
   @Test
   public void testRetrieveDepartmentFound() {
     String deptCode = "COMS";
@@ -105,6 +114,7 @@ public class RouteControllerTests {
     assertEquals("There are: 2700 majors in the department",
             response.getBody().toString());
   }
+
   @Test
   public void testMajorCntNotFound() {
     String deptCode = "AABB";
